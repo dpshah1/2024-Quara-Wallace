@@ -4,51 +4,103 @@
 
 package frc.robot;
 
-import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.Autos;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.subsystems.ExampleSubsystem;
+// Imports subsystems and commands
+
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.motorcontrol.Victor;
+import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.*;
+import frc.robot.subsystems.*;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
- * subsystems, commands, and trigger mappings) should be declared here.
+ * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-  // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  // Drivetrain motors
+  public static WPI_VictorSPX rightLeader = new WPI_VictorSPX(Constants.RightLeader);
+  public static WPI_VictorSPX rightFollower = new WPI_VictorSPX(Constants.RightFollower);
+  public static WPI_VictorSPX leftLeader = new WPI_VictorSPX(Constants.LeftLeader);
+  public static WPI_VictorSPX leftFollower = new WPI_VictorSPX(Constants.LeftFollower);
+
+
+
+  // Intake motors
+  public static CANSparkMax leftIntakeMotor = new CANSparkMax(Constants.LeftIntakeMotorPort, CANSparkMaxLowLevel.MotorType.kBrushless);
+  public static CANSparkMax rightIntakeMotor = new CANSparkMax(Constants.RightIntakeMotorPort, CANSparkMaxLowLevel.MotorType.kBrushless);
+
+  // Motor groups
+  public static MotorControllerGroup leftDrive = new MotorControllerGroup(leftLeader, leftFollower);
+  public static MotorControllerGroup rightDrive = new MotorControllerGroup(rightLeader, rightFollower);
+
+  public static DifferentialDrive myRobot = new DifferentialDrive(leftDrive, rightDrive);
+  public static Drivetrain drivetrain = new Drivetrain();
+  public static Move move = new Move(drivetrain);
+
+//  CommandScheduler.getInstance().setDefaultCommand(drivetrain, new Move(drivetrain));
+
+  public static ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+
+  public static XboxController xController = new XboxController(Constants.XBOX_PORT);
+  public static ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+
+  private static Intake myIntake = new Intake(leftIntakeMotor, rightIntakeMotor);
+  public static MoveRollers intakeCommand = new MoveRollers(myIntake);
+
+  public static CANSparkMax wristMotor = new CANSparkMax(Constants.WRIST_MOTOR_PORT, CANSparkMaxLowLevel.MotorType.kBrushless);
+  public static CANSparkMax armMotor = new CANSparkMax(Constants.ARM_MOTOR_PORT, CANSparkMaxLowLevel.MotorType.kBrushless);
+  public static Wrist myWrist = new Wrist(wristMotor);
+  public static Arm myArm = new Arm(armMotor);
+
+  public static MoveWrist moveWristCommand = new MoveWrist(myWrist);
+  public static MoveArm moveArmCommand = new MoveArm(myArm);
+
+
+  public static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+
+  public static Vision vision = new Vision(table);
+  public static TiltTowardsTarget tiltTowardsTargetCommand = new TiltTowardsTarget(vision, drivetrain);
+
+
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    // Configure the trigger bindings
-    configureBindings();
+    // Configure the button bindings
+    configureButtonBindings();
+    CommandScheduler.getInstance().setDefaultCommand(drivetrain, move);
+
   }
 
-  /**
-   * Use this method to define your trigger->command mappings. Triggers can be created via the
-   * {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
-   * predicate, or via the named factories in {@link
-   * edu.wpi.first.wpilibj2.command.button.CommandGenericHID}'s subclasses for {@link
-   * CommandXboxController Xbox}/{@link edu.wpi.first.wpilibj2.command.button.CommandPS4Controller
-   * PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
-   * joysticks}.
-   */
-  private void configureBindings() {
-    // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
 
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+
+  /**
+   * Use this method to define your button->command mappings. Buttons can be created by
+   * instantiating a {@link GenericHID} or one of its subclasses ({@link
+   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
+   * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
+   */
+  private void configureButtonBindings() {
+    /// tilt button
+    new JoystickButton(xController, Constants.TILT_BUTTON).whileTrue(tiltTowardsTargetCommand);
   }
 
   /**
@@ -56,8 +108,8 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public Command getAutonomousCommand() {
-    // An example command will be run in autonomous
-    return Autos.exampleAuto(m_exampleSubsystem);
+  public ExampleCommand getAutonomousCommand() {
+    // An ExampleCommand will run in autonomous
+    return m_autoCommand;
   }
 }
