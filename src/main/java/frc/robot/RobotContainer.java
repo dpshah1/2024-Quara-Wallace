@@ -10,7 +10,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.Victor;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -19,7 +18,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel;
+
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.networktables.NetworkTable;
@@ -42,43 +41,20 @@ public class RobotContainer {
   public static WPI_VictorSPX leftLeader = new WPI_VictorSPX(Constants.LeftLeader);
   public static WPI_VictorSPX leftFollower = new WPI_VictorSPX(Constants.LeftFollower);
 
+  
 
-
-  // Intake motors
-  public static CANSparkMax leftIntakeMotor = new CANSparkMax(Constants.LeftIntakeMotorPort, CANSparkMaxLowLevel.MotorType.kBrushless);
-  public static CANSparkMax rightIntakeMotor = new CANSparkMax(Constants.RightIntakeMotorPort, CANSparkMaxLowLevel.MotorType.kBrushless);
-
-  // Motor groups
-  public static MotorControllerGroup leftDrive = new MotorControllerGroup(leftLeader, leftFollower);
-  public static MotorControllerGroup rightDrive = new MotorControllerGroup(rightLeader, rightFollower);
-
-  public static DifferentialDrive myRobot = new DifferentialDrive(leftDrive, rightDrive);
+  public static DifferentialDrive myRobot = new DifferentialDrive(leftLeader, rightLeader);
   public static Drivetrain drivetrain = new Drivetrain();
   public static Move move = new Move(drivetrain);
 
-//  CommandScheduler.getInstance().setDefaultCommand(drivetrain, new Move(drivetrain));
 
   public static ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   public static XboxController xController = new XboxController(Constants.XBOX_PORT);
   public static ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-  private static Intake myIntake = new Intake(leftIntakeMotor, rightIntakeMotor);
-  public static MoveRollers intakeCommand = new MoveRollers(myIntake);
-
-  public static CANSparkMax wristMotor = new CANSparkMax(Constants.WRIST_MOTOR_PORT, CANSparkMaxLowLevel.MotorType.kBrushless);
-  public static CANSparkMax armMotor = new CANSparkMax(Constants.ARM_MOTOR_PORT, CANSparkMaxLowLevel.MotorType.kBrushless);
-  public static Wrist myWrist = new Wrist(wristMotor);
-  public static Arm myArm = new Arm(armMotor);
-
-  public static MoveWrist moveWristCommand = new MoveWrist(myWrist);
-  public static MoveArm moveArmCommand = new MoveArm(myArm);
 
 
-  public static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
-
-  public static Vision vision = new Vision(table);
-  public static TiltTowardsTarget tiltTowardsTargetCommand = new TiltTowardsTarget(vision, drivetrain);
 
 
 
@@ -99,8 +75,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    /// tilt button
-    new JoystickButton(xController, Constants.TILT_BUTTON).whileTrue(tiltTowardsTargetCommand);
+
   }
 
   /**

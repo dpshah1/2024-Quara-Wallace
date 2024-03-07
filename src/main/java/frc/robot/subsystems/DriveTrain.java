@@ -8,31 +8,30 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
 
 public class Drivetrain extends SubsystemBase {
-    /** Creates a new ExampleSubsystem. */
+  /** Creates a new ExampleSubsystem. */
 
-    public Drivetrain() {
-        RobotContainer.myRobot.arcadeDrive(0, 0);
+  public Drivetrain() {
+    RobotContainer.myRobot.arcadeDrive(0, 0);
 
-    }
+  }
 
-    @Override
-    public void periodic() {
-        // This method will be called once per scheduler run
-        RobotContainer.move.execute();
+  @Override
+  public void periodic() {
+    // This method will be called once per scheduler run
+    RobotContainer.move.execute();
 
-    }
+  }
 
-    public void setMovement(double rotSpeed, double moveSpeed) {
-        RobotContainer.myRobot.arcadeDrive(rotSpeed, moveSpeed);
-    }
+  public void setMovement(double rotSpeed, double moveSpeed) {
+    RobotContainer.myRobot.arcadeDrive(rotSpeed, moveSpeed);
+  }
 
-    public void stopMovement() {
-        RobotContainer.myRobot.arcadeDrive(0, 0);
-    }
+  public void stopMovement() {
+    RobotContainer.myRobot.arcadeDrive(0, 0);
+  }
 
-
-    @Override
-    public void simulationPeriodic() {
-        // This method will be called once per scheduler run during simulation
-    }
+  @Override
+  public void simulationPeriodic() {
+    // This method will be called once per scheduler run during simulation
+  }
 }
