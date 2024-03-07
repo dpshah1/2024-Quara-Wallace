@@ -41,8 +41,6 @@ public class RobotContainer {
   public static WPI_VictorSPX leftLeader = new WPI_VictorSPX(Constants.LeftLeader);
   public static WPI_VictorSPX leftFollower = new WPI_VictorSPX(Constants.LeftFollower);
 
-  
-
   public static DifferentialDrive myRobot = new DifferentialDrive(leftLeader, rightLeader);
   public static Drivetrain drivetrain = new Drivetrain();
   public static Move move = new Move(drivetrain);
