@@ -23,9 +23,13 @@ public final class Constants {
   }
 
   public static final int XBOX_PORT = 0;
+  
+  // Drivetrain stuff
   public static final int RightLeader = 0;
   public static final int RightFollower = 0;
   public static final int LeftLeader = 0;
   public static final int LeftFollower = 0;
+  public static final double MOVE_SPEED = 0.5;
+  public static final double ROTATION_SPEED = 0.5;
 
 }

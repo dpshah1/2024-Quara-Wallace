@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 
-public class DriveTrain extends SubsystemBase {
+public class Drivetrain extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
 
     private WPI_VictorSPX m_rightLeader; 
@@ -20,8 +20,10 @@ public class DriveTrain extends SubsystemBase {
     private WPI_VictorSPX m_leftFollower;
     private DifferentialDrive m_drive;
 
+    private boolean isShootingMode = true;
 
-  public DriveTrain(WPI_VictorSPX rightLeader, WPI_VictorSPX rightFollower, WPI_VictorSPX leftLeader, WPI_VictorSPX leftFollower) {
+
+  public Drivetrain(WPI_VictorSPX rightLeader, WPI_VictorSPX rightFollower, WPI_VictorSPX leftLeader, WPI_VictorSPX leftFollower) {
     // Initialize the motors
     m_rightLeader = rightLeader;
     m_rightFollower = rightFollower;
@@ -54,9 +56,24 @@ public class DriveTrain extends SubsystemBase {
 
   }
 
+  public void flipDrivingMode() {
+    if(isShootingMode) {
+
+      isShootingMode = false;
+    }
+    else {
+
+      isShootingMode = true;
+    }
+  }
+
 
   public void setMovement(double moveSpeed, double rotSpeed) {
     m_drive.arcadeDrive(moveSpeed, rotSpeed);
+    
+    if(!isShootingMode){
+      m_drive.arcadeDrive(-moveSpeed, -rotSpeed);
+    }
   }
 
   public void stopMovement() {
