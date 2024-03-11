@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 
-public class Drivetrain extends SubsystemBase {
+public class DriveTrain extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
 
     private WPI_VictorSPX m_rightLeader; 
@@ -21,7 +21,7 @@ public class Drivetrain extends SubsystemBase {
     private DifferentialDrive m_drive;
 
 
-  public Drivetrain(WPI_VictorSPX rightLeader, WPI_VictorSPX rightFollower, WPI_VictorSPX leftLeader, WPI_VictorSPX leftFollower) {
+  public DriveTrain(WPI_VictorSPX rightLeader, WPI_VictorSPX rightFollower, WPI_VictorSPX leftLeader, WPI_VictorSPX leftFollower) {
     // Initialize the motors
     m_rightLeader = rightLeader;
     m_rightFollower = rightFollower;
