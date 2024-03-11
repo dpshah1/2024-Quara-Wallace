@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -17,7 +18,7 @@ public class Move extends Command {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public Move(Drivetrain drivetrain) {
+  public Move(DriveTrain drivetrain) {
     this.drivetrain = drivetrain;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(drivetrain);
