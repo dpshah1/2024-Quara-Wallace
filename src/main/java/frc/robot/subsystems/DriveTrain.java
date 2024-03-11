@@ -30,6 +30,7 @@ public class Drivetrain extends SubsystemBase {
     
     // Invert the left leader
     m_leftLeader.setInverted(true);
+    m_leftFollower.setInverted(true); // might not be needed
 
     // Set the Differential Drive Class
     m_drive = new DifferentialDrive(m_leftLeader, m_rightLeader);
