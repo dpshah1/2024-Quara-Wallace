@@ -4,16 +4,13 @@
 
 package frc.robot.commands;
 
-import frc.robot.Constants;
-import frc.robot.RobotContainer;
-import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
 public class Move extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private Drivetrain drivetrain;
+  private final Drivetrain drivetrain;
 
   /**
    * Creates a new ExampleCommand.
@@ -32,16 +29,7 @@ public class Move extends Command {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    double speed = RobotContainer.xController.getLeftY();
-    double rotation = RobotContainer.xController.getLeftX();
-
-    drivetrain.setMovement(speed * Constants.MOVE_SPEED, rotation * Constants.ROTATION_SPEED);
-
-    if(RobotContainer.xController.getAButton()) {
-      drivetrain.flipDrivingMode();
-    }
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override
