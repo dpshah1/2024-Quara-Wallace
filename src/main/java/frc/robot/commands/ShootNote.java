@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.*;;
@@ -14,6 +15,7 @@ public class ShootNote extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private Shooter m_shooter;
   private boolean isOver;
+  private Timer t;
 
   /**
    * Creates a new ExampleCommand.
@@ -39,14 +41,27 @@ public class ShootNote extends Command {
         m_shooter.shootNote(true);
 
         // add code to wait for 1.5 seconds
+        waitForTime(1.5);
     }
     else if (RobotContainer.xController.getXButton()) {
         m_shooter.shootNote(false);
 
         // add code to wait for 1.5 seconds
+        waitForTime(1.5);
     }
     
     
+  }
+
+  private void waitForTime(double timeInSeconds) {
+    // do stuff
+    t = new Timer();
+
+    t.restart();
+
+    while (t.hasElapsed(timeInSeconds)) {
+        // wait
+    }
   }
 
   // Called once the command ends or is interrupted.
