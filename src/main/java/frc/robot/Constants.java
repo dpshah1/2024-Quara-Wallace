@@ -32,4 +32,6 @@ public final class Constants {
   public static final double MOVE_SPEED = 0.5;
   public static final double ROTATION_SPEED = 0.5;
 
+  public static final int SHOOTER_ANGLE_PORT = 999; // find the actual id
+
 }

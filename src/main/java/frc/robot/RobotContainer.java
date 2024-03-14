@@ -17,8 +17,10 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
-import com.revrobotics.CANSparkMax;
 
+import com.revrobotics.CANSparkLowLevel;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.networktables.NetworkTable;
@@ -49,6 +51,10 @@ public class RobotContainer {
 
   public static XboxController xController = new XboxController(Constants.XBOX_PORT);
   public static ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+
+  public static CANSparkMax shooterAngleMotor = new CANSparkMax(Constants.SHOOTER_ANGLE_PORT, CANSparkLowLevel.MotorType.kBrushless);
+  public static Shooter shooter = new Shooter(shooterAngleMotor);
+  
 
 
 
