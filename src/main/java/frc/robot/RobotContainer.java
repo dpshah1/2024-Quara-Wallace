@@ -52,8 +52,6 @@ public class RobotContainer {
   public static XboxController xController = new XboxController(Constants.XBOX_PORT);
   public static ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-  public static CANSparkMax shooterAngleMotor = new CANSparkMax(Constants.SHOOTER_ANGLE_PORT, CANSparkLowLevel.MotorType.kBrushless);
-  public static Shooter shooter = new Shooter(shooterAngleMotor);
   
 
 
