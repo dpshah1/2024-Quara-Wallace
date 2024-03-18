@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.commands.Move;
 
 public class Drivetrain extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
@@ -45,6 +46,10 @@ public class Drivetrain extends SubsystemBase {
     // This method will be called once per scheduler run
     followMotor();
 
+  }
+
+  public void initDefaultCommand() {
+    setDefaultCommand(new Move(this));
   }
 
   // Allows the followers to follow the leader motors since MotorGroup is depracted. 
