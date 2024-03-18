@@ -46,8 +46,6 @@ public class RobotContainer {
   public static Drivetrain drivetrain = new Drivetrain(rightLeader, rightFollower, leftLeader, leftFollower);
   public static Move move = new Move(drivetrain);
 
-  drivetrain.setDefaultCommand(move);
-
 
   public static ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
