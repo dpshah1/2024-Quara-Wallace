@@ -59,7 +59,7 @@ public class ShootNote extends Command {
 
     t.restart();
 
-    while (t.hasElapsed(timeInSeconds)) {
+    while (!t.hasElapsed(timeInSeconds)) {
         // wait
     }
   }
