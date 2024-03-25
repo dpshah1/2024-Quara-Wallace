@@ -34,19 +34,35 @@ public class DriveForTime extends Command {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    m_timer.start();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    if(m_forward) {
+        m_drive.setMovement(0.5, 0);
+    }
+    else {
+        m_drive.setMovement(-0.5, 0);
+    }
+    
+  }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_drive.stopMovement();
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    if (m_timer.hasElapsed(m_time)) {
+        return true;
+    }
+
     return false;
   }
 }
