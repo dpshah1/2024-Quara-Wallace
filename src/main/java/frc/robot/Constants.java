@@ -34,4 +34,6 @@ public final class Constants {
 
   public static final int SHOOTER_ANGLE_PORT = 999; // find the actual id
 
+  // Drive for time
+  public static final double AUTO_MOVE_SPEED = 0.5;
 }
