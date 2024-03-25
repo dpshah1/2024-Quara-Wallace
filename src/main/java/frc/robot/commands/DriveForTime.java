@@ -4,10 +4,10 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.*;
+import frc.robot.Constants;
 
 /** An example command that uses an example subsystem. */
 public class DriveForTime extends Command {
@@ -42,10 +42,10 @@ public class DriveForTime extends Command {
   @Override
   public void execute() {
     if(m_forward) {
-        m_drive.setMovement(0.5, 0);
+        m_drive.setMovement(Constants.AUTO_MOVE_SPEED, 0);
     }
     else {
-        m_drive.setMovement(-0.5, 0);
+        m_drive.setMovement(-Constants.AUTO_MOVE_SPEED, 0);
     }
     
   }
