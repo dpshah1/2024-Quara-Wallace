@@ -61,6 +61,10 @@ public class RobotContainer {
 
   public static TestAuto auto = new TestAuto();
   
+  
+  public static WPI_VictorSPX leftBelt = new WPI_VictorSPX(Constants.leftBelt);
+  public static WPI_VictorSPX rightBelt = new WPI_VictorSPX(Constants.rightBelt);
+  public static Belt belt = new Belt(leftBelt, rightBelt);
 
 
 
@@ -84,7 +88,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-
+    new JoystickButton(XboxController, 3).whileTrue(new moveUp());
   }
 
   /**

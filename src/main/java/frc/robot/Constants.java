@@ -25,6 +25,11 @@ public final class Constants {
   // Controller ports
   public static final int XBOX_PORT = 0;
   
+  //Belt
+  public static final double BELT_MOTOR_SPEED = 1.5;
+  public static final int leftBelt = 50; //FIND THE ACTUAL VALUE
+  public static final int rightBelt = 60;
+
   // Drivetrain stuff
   public static final int RightLeader = 6;
   public static final int RightFollower = 2;
