@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
+import frc.robot.autos.*;
 
 import com.revrobotics.CANSparkLowLevel;
 import com.revrobotics.CANSparkMax;
@@ -54,6 +55,8 @@ public class RobotContainer {
 
   public static CANSparkMax shooterAngleMotor = new CANSparkMax(Constants.SHOOTER_ANGLE_PORT, CANSparkLowLevel.MotorType.kBrushless);
   public static Shooter shooter = new Shooter(shooterAngleMotor);
+
+  public static TestAuto auto = new TestAuto();
   
 
 
@@ -86,8 +89,8 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public ExampleCommand getAutonomousCommand() {
+  public TestAuto getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return auto;
   }
 }
