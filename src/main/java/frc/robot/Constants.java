@@ -22,6 +22,7 @@ public final class Constants {
 
   }
 
+  // Controller ports
   public static final int XBOX_PORT = 0;
   
   // Drivetrain stuff
@@ -32,10 +33,15 @@ public final class Constants {
   public static final double MOVE_SPEED = 0.5;
   public static final double ROTATION_SPEED = 0.5;
 
+  // Shooter angle
   public static final int SHOOTER_ANGLE_PORT = 999; // find the actual id
+
+  // Shooter
 
   // Drive for time
   public static final double AUTO_MOVE_SPEED = 0.5;
+  
+  // Turn for angle
   public static final double KP_TURN_ANGLE = 0.1;
   public static final double KI_TURN_ANGLE = 0.0;
   public static final double KD_TURN_ANGLE = 0.0;
