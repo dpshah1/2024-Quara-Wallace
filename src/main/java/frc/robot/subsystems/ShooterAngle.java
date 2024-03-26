@@ -9,15 +9,18 @@ import edu.wpi.first.wpilibj2.command.Command;
 
 
 
-public class Shooter extends SubsystemBase {
+public class ShooterAngle extends SubsystemBase {
     private CANSparkMax m_shooterAngleMotor;
     public final double SPEAKER_ANGLE = 999; // test to find the actual angle
     public final double AMP_ANGLE = 999; // test to find the actual angle
+    public final double REST_ANGLE = 999; // test to find the acutal angle 
+    private double currentAngleSetpoint = REST_ANGLE;
+    
 
-    public final double SPEAKER_SHOOT_SPEED = 0.8;
-    public final double AMP_SHOOT_SPEED = 0.3;
+    // public final double SPEAKER_SHOOT_SPEED = 0.8;
+    // public final double AMP_SHOOT_SPEED = 0.3;
 
-    public Shooter(CANSparkMax shooterAngleMotor) {
+    public ShooterAngle(CANSparkMax shooterAngleMotor) {
         this.m_shooterAngleMotor = shooterAngleMotor;
     }
 
@@ -30,17 +33,16 @@ public class Shooter extends SubsystemBase {
         return m_shooterAngleMotor.getEncoder().getPosition();
     }
 
-    public void setMotorSpeed(double speed) {
-        m_shooterAngleMotor.set(speed);
+    public double getAngleSetpoint() {
+        return currentAngleSetpoint;
     }
 
-    public void shootNote(boolean isSpeaker) {
-        if(isSpeaker) {
-            this.setMotorSpeed(SPEAKER_SHOOT_SPEED);
-        }
-        else {
-            this.setMotorSpeed(AMP_SHOOT_SPEED);
-        }
+    public void setAngleSetpoint(double newSetpoint) {
+        currentAngleSetpoint = newSetpoint;
+    }
+
+    public void setMotorSpeed(double speed) {
+        m_shooterAngleMotor.set(speed);
     }
 
 }

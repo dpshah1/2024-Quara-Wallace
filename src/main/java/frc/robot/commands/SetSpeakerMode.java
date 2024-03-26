@@ -6,14 +6,14 @@ import frc.robot.subsystems.*;
 
 public class SetSpeakerMode extends Command {
     
-    private Shooter m_shooter;
+    private ShooterAngle m_shooter;
     private PIDController pid;
 
     private double kP = 0.1;
     private double kI = 0;
     private double kD = 0;
 
-    public SetSpeakerMode(Shooter shooter) {
+    public SetSpeakerMode(ShooterAngle shooter) {
         this.m_shooter = shooter;
     }
 

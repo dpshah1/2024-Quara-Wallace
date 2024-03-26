@@ -57,7 +57,7 @@ public class RobotContainer {
   public static ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   public static CANSparkMax shooterAngleMotor = new CANSparkMax(Constants.SHOOTER_ANGLE_PORT, CANSparkLowLevel.MotorType.kBrushless);
-  public static Shooter shooter = new Shooter(shooterAngleMotor);
+  public static ShooterAngle shooter = new ShooterAngle(shooterAngleMotor);
 
   public static TestAuto auto = new TestAuto();
   
