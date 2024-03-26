@@ -26,7 +26,7 @@ public class DriveForTime extends Command {
     m_drive = drive;
     m_timer = new Timer();
     m_time = time;
-    m_forward = forward;
+    m_forward = !forward;
 
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_drive);

@@ -11,9 +11,10 @@ public class TestAuto extends SequentialCommandGroup{
     public TestAuto() {
         addCommands(
             new DriveForTime(RobotContainer.drivetrain, 2, true),
-            new Delay(2),
+            new Delay(0.5),
             new TurnForAngle(RobotContainer.drivetrain, -90),
-            new DriveForTime(RobotContainer.drivetrain, 0.5, true)
+            new Delay(0.5),
+            new DriveForTime(RobotContainer.drivetrain, 1, true)
         );
     }
 }

@@ -42,7 +42,7 @@ public final class Constants {
   public static final double AUTO_MOVE_SPEED = 0.5;
   
   // Turn for angle
-  public static final double KP_TURN_ANGLE = 0.1;
+  public static final double KP_TURN_ANGLE = 0.01;
   public static final double KI_TURN_ANGLE = 0.0;
   public static final double KD_TURN_ANGLE = 0.0;
 }
