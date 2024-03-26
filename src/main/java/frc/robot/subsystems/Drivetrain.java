@@ -98,11 +98,6 @@ public class Drivetrain extends SubsystemBase {
         // This method will be called once per scheduler run during simulation
     }
 
-    public void setSpeed(double leftSpeed, double rightSpeed) {
-        m_leftLeader.set(leftSpeed);
-        m_rightLeader.set(rightSpeed);
-    }
-
     public double getGyroAngle() {
         return gyro.getAngle();
     }

@@ -30,7 +30,7 @@ public class TurnForAngle extends Command {
 
         double speed = pidController.calculate(error);
 
-        drivetrain.setMovement(speed, 0);
+        drivetrain.setMovement(0, speed);
     }
 
     @Override
