@@ -26,10 +26,10 @@ public final class Constants {
   public static final int XBOX_PORT = 0;
   
   // Drivetrain stuff
-  public static final int RightLeader = 3;
+  public static final int RightLeader = 6;
   public static final int RightFollower = 2;
   public static final int LeftLeader = 4;
-  public static final int LeftFollower = 6;
+  public static final int LeftFollower = 3;
   public static final double MOVE_SPEED = 0.5;
   public static final double ROTATION_SPEED = 0.5;
 
