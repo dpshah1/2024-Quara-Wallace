@@ -7,6 +7,8 @@ package frc.robot;
 // Imports subsystems and commands
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
+import edu.wpi.first.wpilibj.ADIS16470_IMU;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -43,8 +45,9 @@ public class RobotContainer {
   public static WPI_VictorSPX rightFollower = new WPI_VictorSPX(Constants.RightFollower);
   public static WPI_VictorSPX leftLeader = new WPI_VictorSPX(Constants.LeftLeader);
   public static WPI_VictorSPX leftFollower = new WPI_VictorSPX(Constants.LeftFollower);
+  public static ADIS16470_IMU imu = new ADIS16470_IMU();
 
-  public static Drivetrain drivetrain = new Drivetrain(rightLeader, rightFollower, leftLeader, leftFollower);
+  public static Drivetrain drivetrain = new Drivetrain(rightLeader, rightFollower, leftLeader, leftFollower, imu);
   public static Move move = new Move(drivetrain);
 
 

@@ -10,7 +10,7 @@ import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.commands.Move;
-
+import edu.wpi.first.wpilibj.ADIS16470_IMU;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 
 
@@ -18,7 +18,7 @@ public class Drivetrain extends SubsystemBase {
     /**
      * Creates a new ExampleSubsystem.
      */
-    private ADXRS450_Gyro gyro;
+    private ADIS16470_IMU m_imu;
     private WPI_VictorSPX m_rightLeader;
     private WPI_VictorSPX m_rightFollower;
     private WPI_VictorSPX m_leftLeader;
@@ -28,7 +28,7 @@ public class Drivetrain extends SubsystemBase {
     private boolean isShootingMode = true;
 
 
-    public Drivetrain(WPI_VictorSPX rightLeader, WPI_VictorSPX rightFollower, WPI_VictorSPX leftLeader, WPI_VictorSPX leftFollower) {
+    public Drivetrain(WPI_VictorSPX rightLeader, WPI_VictorSPX rightFollower, WPI_VictorSPX leftLeader, WPI_VictorSPX leftFollower, ADIS16470_IMU imu) {
         // Initialize the motors
         m_rightLeader = rightLeader;
         m_rightFollower = rightFollower;
@@ -37,14 +37,14 @@ public class Drivetrain extends SubsystemBase {
 
         // Invert the left leader
         m_leftLeader.setInverted(true);
-        m_leftFollower.setInverted(true); // might not be needed
+        m_leftFollower.setInverted(true);
 
         // Set the Differential Drive Class
         m_drive = new DifferentialDrive(m_leftLeader, m_rightLeader);
 
         // Set the starting speed to 0
         m_drive.arcadeDrive(0, 0);
-        gyro = new ADXRS450_Gyro();
+        m_imu = imu;
     }
 
 
@@ -52,10 +52,6 @@ public class Drivetrain extends SubsystemBase {
     public void periodic() {
         // This method will be called once per scheduler run
         followMotor();
-    }
-
-    public Drivetrain() {
-        gyro = new ADXRS450_Gyro();
     }
 
     public void initDefaultCommand() {
@@ -98,11 +94,11 @@ public class Drivetrain extends SubsystemBase {
         // This method will be called once per scheduler run during simulation
     }
 
-    public double getGyroAngle() {
-        return gyro.getAngle();
+    public double getIMUAngle() {
+        return m_imu.getAngle();
     }
 
-    public void resetGyro() {
-        gyro.reset();
+    public void resetIMU() {
+        m_imu.reset();
     }
 }

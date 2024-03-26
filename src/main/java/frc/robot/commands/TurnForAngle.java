@@ -21,12 +21,12 @@ public class TurnForAngle extends Command {
     @Override
     public void initialize() {
         pidController.reset();
-        drivetrain.resetGyro();
+        drivetrain.resetIMU();
     }
 
     @Override
     public void execute() {
-        double error = angleChange - drivetrain.getGyroAngle();
+        double error = angleChange - drivetrain.getIMUAngle();
 
         double speed = pidController.calculate(error);
 
