@@ -49,4 +49,8 @@ public final class Constants {
   public static final double KP_TURN_ANGLE = 0.01;
   public static final double KI_TURN_ANGLE = 0.0;
   public static final double KD_TURN_ANGLE = 0.0;
+
+public static final int BOTTOM_INTAKE_PORT = 999; // find out actual
+
+public static final int TOP_INTAKE_PORT = 999; // find out actual
 }

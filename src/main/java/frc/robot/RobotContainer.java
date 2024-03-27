@@ -4,6 +4,9 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 // Imports subsystems and commands
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
@@ -61,6 +64,10 @@ public class RobotContainer {
 
   public static TestAuto auto = new TestAuto();
   
+  
+  public static WPI_TalonSRX topIntake = new WPI_TalonSRX(Constants.TOP_INTAKE_PORT);
+  public static WPI_TalonSRX bottomIntake = new WPI_TalonSRX(Constants.BOTTOM_INTAKE_PORT);
+  public static Intake intake = new Intake();
 
 
 
@@ -84,7 +91,9 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-
+    // A to start intake, B to stop intake
+    new JoystickButton(xController, 1).onTrue(intake.runIntake());
+    new JoystickButton(xController, 2).onTrue(intake.stopIntake());
   }
 
   /**
