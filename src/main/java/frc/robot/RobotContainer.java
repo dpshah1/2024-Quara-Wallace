@@ -48,6 +48,7 @@ public class RobotContainer {
   public static WPI_VictorSPX rightFollower = new WPI_VictorSPX(Constants.RightFollower);
   public static WPI_VictorSPX leftLeader = new WPI_VictorSPX(Constants.LeftLeader);
   public static WPI_VictorSPX leftFollower = new WPI_VictorSPX(Constants.LeftFollower);
+  public static WPI_VictorSPX shooterMotor = new WPI_VictorSPX(Constants.SHOOTER_MOTOR_PORT);
   public static ADIS16470_IMU imu = new ADIS16470_IMU();
 
   public static Drivetrain drivetrain = new Drivetrain(rightLeader, rightFollower, leftLeader, leftFollower, imu);
@@ -60,19 +61,17 @@ public class RobotContainer {
   public static ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   public static CANSparkMax shooterAngleMotor = new CANSparkMax(Constants.SHOOTER_ANGLE_PORT, CANSparkLowLevel.MotorType.kBrushless);
-  public static ShooterAngle shooter = new ShooterAngle(shooterAngleMotor);
+  public static ShooterAngle shooterAngle = new ShooterAngle(shooterAngleMotor);
 
   public static TestAuto auto = new TestAuto();
-  
+
+
   
   public static WPI_TalonSRX topIntake = new WPI_TalonSRX(Constants.TOP_INTAKE_PORT);
   public static WPI_TalonSRX bottomIntake = new WPI_TalonSRX(Constants.BOTTOM_INTAKE_PORT);
   public static Intake intake = new Intake();
 
-
-
-
-
+  public static Shooter shooter = new Shooter(shooterMotor);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -94,6 +93,7 @@ public class RobotContainer {
     // A to start intake, B to stop intake
     new JoystickButton(xController, 1).onTrue(intake.runIntake());
     new JoystickButton(xController, 2).onTrue(intake.stopIntake());
+    new JoystickButton(xController, 3).onTrue(shooter.shootCommand());
   }
 
   /**

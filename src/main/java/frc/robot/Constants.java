@@ -17,40 +17,42 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-  public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
+    public static class OperatorConstants {
+        public static final int kDriverControllerPort = 0;
 
-  }
+    }
 
-  // Controller ports
-  public static final int XBOX_PORT = 0;
-  
-  // Drivetrain stuff
-  public static final int RightLeader = 6;
-  public static final int RightFollower = 2;
-  public static final int LeftLeader = 4;
-  public static final int LeftFollower = 3;
-  public static final int TopIntakeMotor = 5;
-  public static final int BottomIntakeMotor = 1;
-  public static final double MOVE_SPEED = 0.5;
-  public static final double ROTATION_SPEED = 0.5;
-  public static final double IntakeSpeed = 0.5;
-  public static final int IntakeButton = 5;
+    // Controller ports
+    public static final int XBOX_PORT = 0;
 
-  // Shooter angle
-  public static final int SHOOTER_ANGLE_PORT = 999; // find the actual id
+    // Drivetrain stuff
+    public static final int RightLeader = 6;
+    public static final int RightFollower = 2;
+    public static final int LeftLeader = 4;
+    public static final int LeftFollower = 3;
+    public static final int TopIntakeMotor = 5;
+    public static final int BottomIntakeMotor = 1;
+    public static final double MOVE_SPEED = 0.5;
+    public static final double ROTATION_SPEED = 0.5;
+    public static final double IntakeSpeed = 0.5;
+    public static final int IntakeButton = 5;
+    public static final double ShooterTopSpeed = 0.5;
+    public static final double ShooterBottomSpeed = 0.5;
 
-  // Shooter
+    // Shooter angle
+    public static final int SHOOTER_ANGLE_PORT = 999; // find the actual id
 
-  // Drive for time
-  public static final double AUTO_MOVE_SPEED = 0.5;
-  
-  // Turn for angle
-  public static final double KP_TURN_ANGLE = 0.01;
-  public static final double KI_TURN_ANGLE = 0.0;
-  public static final double KD_TURN_ANGLE = 0.0;
+    // Shooter
 
-public static final int BOTTOM_INTAKE_PORT = 999; // find out actual
+    // Drive for time
+    public static final double AUTO_MOVE_SPEED = 0.5;
 
-public static final int TOP_INTAKE_PORT = 999; // find out actual
+    // Turn for angle
+    public static final double KP_TURN_ANGLE = 0.01;
+    public static final double KI_TURN_ANGLE = 0.0;
+    public static final double KD_TURN_ANGLE = 0.0;
+
+    public static final int BOTTOM_INTAKE_PORT = 999; // find out actual
+
+    public static final int TOP_INTAKE_PORT = 999; // find out actual
 }
