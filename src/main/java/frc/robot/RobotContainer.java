@@ -63,7 +63,20 @@ public class RobotContainer {
   public static CANSparkMax shooterAngleMotor = new CANSparkMax(Constants.SHOOTER_ANGLE_PORT, CANSparkLowLevel.MotorType.kBrushless);
   public static ShooterAngle shooterAngle = new ShooterAngle(shooterAngleMotor);
 
+  public static NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+  public static NetworkTableEntry tx = table.getEntry("tx");
+  public static NetworkTableEntry ty = table.getEntry("ty");
+  public static NetworkTableEntry ta = table.getEntry("ta");
+  public static Vision vision = new Vision(table);
+
+  public static TiltTowardsTarget tilt = new TiltTowardsTarget(vision, drivetrain);
+
   public static TestAuto auto = new TestAuto();
+
+  /// network table
+
+
+
 
 
   
@@ -94,6 +107,7 @@ public class RobotContainer {
     new JoystickButton(xController, 1).onTrue(intake.runIntake());
     new JoystickButton(xController, 2).onTrue(intake.stopIntake());
     new JoystickButton(xController, 3).onTrue(shooter.shootCommand());
+    new JoystickButton(xController, 4).onTrue(tilt);
   }
 
   /**
