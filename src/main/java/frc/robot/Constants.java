@@ -30,14 +30,12 @@ public final class Constants {
     public static final int RightFollower = 2;
     public static final int LeftLeader = 4;
     public static final int LeftFollower = 3;
-    public static final int TopIntakeMotor = 5;
+    public static final int TopIntakeMotor = 1;
     public static final int BottomIntakeMotor = 1;
+    public static final int SHOOTER_MOTOR_PORT = 7;
     public static final double MOVE_SPEED = 0.5;
     public static final double ROTATION_SPEED = 0.5;
     public static final double IntakeSpeed = 0.5;
-    public static final int IntakeButton = 5;
-    public static final double ShooterTopSpeed = 0.5;
-    public static final double ShooterBottomSpeed = 0.5;
 
     // Shooter angle
     public static final int SHOOTER_ANGLE_PORT = 999; // find the actual id

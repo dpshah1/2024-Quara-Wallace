@@ -31,8 +31,8 @@ public class Intake extends SubsystemBase{
     }
 
     public void startIntake() {
-        topIntakeMotor.set(Constants.IntakeSpeed);
-        bottomIntakeMotor.set(-Constants.IntakeSpeed);
+        topIntakeMotor.set(-Constants.IntakeSpeed);
+        bottomIntakeMotor.set(Constants.IntakeSpeed);
     }
 
     public void stopIntakeCommand() {
