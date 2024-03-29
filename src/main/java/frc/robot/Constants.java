@@ -38,7 +38,7 @@ public final class Constants {
     public static final double IntakeSpeed = 0.5;
 
     // Shooter angle
-    public static final int SHOOTER_ANGLE_PORT = 999; // find the actual id
+    public static final int SHOOTER_ANGLE_PORT = 25; // find the actual id
 
     // Shooter
 

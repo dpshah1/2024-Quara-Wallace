@@ -75,6 +75,8 @@ public class RobotContainer {
 
   /// network table
 
+  Test t = new Test(shooterAngleMotor);
+
 
 
 
@@ -108,6 +110,7 @@ public class RobotContainer {
     new JoystickButton(xController, 2).onTrue(intake.stopIntake());
     new JoystickButton(xController, 3).onTrue(shooter.shootCommand());
     new JoystickButton(xController, 4).onTrue(tilt);
+    new JoystickButton(xController, 5).onTrue(t.doHi());
   }
 
   /**
