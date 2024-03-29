@@ -29,7 +29,34 @@ public class ColorSensor extends SubsystemBase {
         
     }
 
+    public double getRed() {
+        Color detectColor = m_colorSensor.getColor();
+
+        return detectColor.red;
+    }
+
+    public double getGreen() {
+        Color detectColor = m_colorSensor.getColor();
+
+        return detectColor.green;
+    }
+
+    public double getBlue() {
+        Color detectColor = m_colorSensor.getColor();
+
+        return detectColor.blue;
+    }
+
+    public double getIR() {
+        double IR = m_colorSensor.getIR();
+
+        return IR;
+    }
     
+    public int getNoteProximity() {
+        int proximity = m_colorSensor.getProximity()
+        return proximity;
+    }
 
 
 }
