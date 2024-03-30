@@ -22,20 +22,27 @@ public final class Constants {
 
     }
 
-    // Controller ports
-    public static final int XBOX_PORT = 0;
+  // Controller ports
+  public static final int XBOX_PORT = 0;
+  
+  //Belt
+  public static final double BELT_MOTOR_SPEED = 1.5;
+  public static final int leftBelt = 50; //FIND THE ACTUAL VALUE
+  public static final int rightBelt = 60;
 
-    // Drivetrain stuff
-    public static final int RightLeader = 6;
-    public static final int RightFollower = 2;
-    public static final int LeftLeader = 4;
-    public static final int LeftFollower = 3;
-    public static final int TopIntakeMotor = 1;
-    public static final int BottomIntakeMotor = 1;
-    public static final int SHOOTER_MOTOR_PORT = 7;
-    public static final double MOVE_SPEED = 0.5;
-    public static final double ROTATION_SPEED = 0.5;
-    public static final double IntakeSpeed = 0.5;
+  // Drivetrain stuff
+  public static final int RightLeader = 6;
+  public static final int RightFollower = 2;
+  public static final int LeftLeader = 4;
+  public static final int LeftFollower = 3;
+  public static final int TopIntakeMotor = 1;
+  public static final int BottomIntakeMotor = 1;
+  public static final int SHOOTER_MOTOR_PORT = 7;
+
+  public static final double MOVE_SPEED = 0.5;
+  public static final double ROTATION_SPEED = 0.5;
+  public static final double IntakeSpeed = 0.5;
+
 
     // Shooter angle
     public static final int SHOOTER_ANGLE_PORT = 25; // find the actual id

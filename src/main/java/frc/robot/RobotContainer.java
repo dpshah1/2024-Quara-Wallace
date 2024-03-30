@@ -72,6 +72,16 @@ public class RobotContainer {
   public static TiltTowardsTarget tilt = new TiltTowardsTarget(vision, drivetrain);
 
   public static TestAuto auto = new TestAuto();
+  
+  
+  public static WPI_VictorSPX leftBelt = new WPI_VictorSPX(Constants.leftBelt);
+  public static WPI_VictorSPX rightBelt = new WPI_VictorSPX(Constants.rightBelt);
+  public static Belt belt = new Belt(leftBelt, rightBelt);
+
+
+
+
+
 
   /// network table
 
@@ -111,6 +121,7 @@ public class RobotContainer {
     new JoystickButton(xController, 3).onTrue(shooter.shootCommand());
     new JoystickButton(xController, 4).onTrue(tilt);
     new JoystickButton(xController, 5).onTrue(t.doHi());
+    new JoystickButton(xController, 3).whileTrue(new moveUp());
   }
 
   /**
