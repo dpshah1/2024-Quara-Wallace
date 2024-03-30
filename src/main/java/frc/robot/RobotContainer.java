@@ -121,7 +121,7 @@ public class RobotContainer {
     new JoystickButton(xController, 3).onTrue(shooter.shootCommand());
     new JoystickButton(xController, 4).onTrue(tilt);
     new JoystickButton(xController, 5).onTrue(t.doHi());
-    new JoystickButton(xController, 3).whileTrue(new moveUp());
+    new JoystickButton(xController, 3).whileTrue(belt.moveUp());
   }
 
   /**

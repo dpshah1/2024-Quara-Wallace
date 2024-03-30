@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 
 
@@ -23,7 +24,7 @@ public class Belt extends SubsystemBase {
     m_rightBelt = rightBelt;
 
     // Inverts
-    m_leftBelt.follow(m_rightBelt, true);
+    m_leftBelt.follow(m_rightBelt);
   }
 
 
@@ -39,7 +40,7 @@ public class Belt extends SubsystemBase {
   public Command moveUp() {
     return runOnce(
         () -> {
-        m_rightBelt.set(BELT_MOTOR_SPEED);
+        m_rightBelt.set(Constants.BELT_MOTOR_SPEED);
         System.out.println("Belt up");
         });
   }
