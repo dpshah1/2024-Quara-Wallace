@@ -31,11 +31,11 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
 import com.revrobotics.ColorSensorV3;
 
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
-
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -92,27 +92,34 @@ public class RobotContainer {
 
   Test t = new Test(shooterAngleMotor);
 
-    public static I2C.Port i2cPort = I2C.Port.kOnboard;
-    public static ColorSensorV3 colorSensor = new ColorSensorV3(i2cPort);
-    public static ColorSensor colorSensorSubsystem = new ColorSensor(colorSensor);
+  public static I2C.Port i2cPort = I2C.Port.kOnboard;
+  public static ColorSensorV3 colorSensor = new ColorSensorV3(i2cPort);
+  public static ColorSensor colorSensorSubsystem = new ColorSensor(colorSensor);
 
-
-
-
-
-
-  
   public static WPI_TalonSRX topIntake = new WPI_TalonSRX(Constants.TOP_INTAKE_PORT);
   public static WPI_TalonSRX bottomIntake = new WPI_TalonSRX(Constants.BOTTOM_INTAKE_PORT);
   public static Intake intake = new Intake();
 
   public static Shooter shooter = new Shooter(shooterMotor);
 
+  private final SendableChooser<Command> m_chooser = new SendableChooser<>();
+
+  
+
+
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
     CommandScheduler.getInstance().setDefaultCommand(drivetrain, move);
+
+    // Auto chooser 
+    
+    m_chooser.setDefaultOption("Simple Auto", auto);
+
+
+    SmartDashboard.putData("Auto Mode", m_chooser);
 
   }
 
@@ -131,7 +138,7 @@ public class RobotContainer {
     new JoystickButton(xController, 3).onTrue(shooter.shootCommand());
     new JoystickButton(xController, 4).onTrue(tilt);
     new JoystickButton(xController, 5).onTrue(t.doHi());
-    new JoystickButton(xController, 3).whileTrue(belt.moveUp());
+    new JoystickButton(driverDashboard, 3).whileTrue(belt.moveUp());
   }
 
   /**
@@ -139,8 +146,9 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public TestAuto getAutonomousCommand() {
+  public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return auto;
+    return m_chooser.getSelected();
+
   }
 }
