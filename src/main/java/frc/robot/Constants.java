@@ -60,4 +60,8 @@ public final class Constants {
     public static final int BOTTOM_INTAKE_PORT = 999; // find out actual
 
     public static final int TOP_INTAKE_PORT = 999; // find out actual
+
+    public static final int JOYSTICK_PORT = 1;
+
+    public static final int NOTE_DISTANCE = 5; // not sure what the units are, but need to find the distance of the note
 }

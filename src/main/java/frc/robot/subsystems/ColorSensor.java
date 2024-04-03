@@ -54,7 +54,7 @@ public class ColorSensor extends SubsystemBase {
     }
     
     public int getNoteProximity() {
-        int proximity = m_colorSensor.getProximity()
+        int proximity = m_colorSensor.getProximity();
         return proximity;
     }
 

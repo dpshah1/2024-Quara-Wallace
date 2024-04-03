@@ -14,6 +14,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.ADIS16470_IMU;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.I2C;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.Victor;
@@ -57,10 +58,12 @@ public class RobotContainer {
   public static Move move = new Move(drivetrain);
 
 
-  public static ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  //public static ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   public static XboxController xController = new XboxController(Constants.XBOX_PORT);
-  public static ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  public static Joystick driverDashboard = new Joystick(Constants.JOYSTICK_PORT);
+
+  //public static ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   public static CANSparkMax shooterAngleMotor = new CANSparkMax(Constants.SHOOTER_ANGLE_PORT, CANSparkLowLevel.MotorType.kBrushless);
   public static ShooterAngle shooterAngle = new ShooterAngle(shooterAngleMotor);
@@ -91,6 +94,7 @@ public class RobotContainer {
 
     public static I2C.Port i2cPort = I2C.Port.kOnboard;
     public static ColorSensorV3 colorSensor = new ColorSensorV3(i2cPort);
+    public static ColorSensor colorSensorSubsystem = new ColorSensor(colorSensor);
 
 
 
