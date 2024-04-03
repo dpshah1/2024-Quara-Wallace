@@ -13,6 +13,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.ADIS16470_IMU;
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.Victor;
@@ -27,6 +28,7 @@ import frc.robot.autos.*;
 import com.revrobotics.CANSparkLowLevel;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
+import com.revrobotics.ColorSensorV3;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.networktables.NetworkTable;
@@ -86,6 +88,10 @@ public class RobotContainer {
   /// network table
 
   Test t = new Test(shooterAngleMotor);
+
+    public static I2C.Port i2cPort = I2C.Port.kOnboard;
+    public static ColorSensorV3 colorSensor = new ColorSensorV3(i2cPort);
+
 
 
 
