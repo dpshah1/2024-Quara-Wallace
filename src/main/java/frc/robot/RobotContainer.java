@@ -104,6 +104,11 @@ public class RobotContainer {
 
   private final SendableChooser<Command> m_chooser = new SendableChooser<>();
 
+  public static WPI_TalonSRX leftClimbMotor = new WPI_TalonSRX(Constants.LEFT_CLIMB_PORT);
+  public static WPI_VictorSPX rightClimbMotor = new WPI_VictorSPX(Constants.RIGHT_CLIMB_PORT);
+
+  public static Climber climbers = new Climber(leftClimbMotor, rightClimbMotor);
+
   
 
 
@@ -139,6 +144,7 @@ public class RobotContainer {
     new JoystickButton(xController, 4).onTrue(tilt);
     new JoystickButton(xController, 5).onTrue(t.doHi());
     new JoystickButton(driverDashboard, 3).whileTrue(belt.moveUp());
+    new JoystickButton(driverDashboard, 1).onTrue(new IntakeNote());
   }
 
   /**
