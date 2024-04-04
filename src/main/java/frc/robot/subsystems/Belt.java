@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.revrobotics.CANSparkMax;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -12,15 +13,10 @@ import frc.robot.Constants;
 
 public class Belt extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  private WPI_VictorSPX m_leftBelt;
-  private WPI_VictorSPX m_rightBelt;
+  private CANSparkMax m_belt;
 
-  public Belt(WPI_VictorSPX leftBelt, WPI_VictorSPX rightBelt) {
-    m_leftBelt = leftBelt;
-    m_rightBelt = rightBelt;
-
-    // Inverts
-    m_leftBelt.follow(m_rightBelt);
+  public Belt(CANSparkMax belt) {
+    m_belt = belt;
   }
 
   @Override
@@ -31,7 +27,7 @@ public class Belt extends SubsystemBase {
   public Command moveUp() {
     return runOnce(
         () -> {
-          m_rightBelt.set(Constants.BELT_MOTOR_SPEED);
+          m_belt.set(Constants.BELT_MOTOR_SPEED);
           System.out.println("Belt up");
         });
   }
@@ -39,8 +35,8 @@ public class Belt extends SubsystemBase {
   public Command stopBelt() {
     return runOnce(
         () -> {
-          m_rightBelt.set(0);
-          System.out.println("Belt up");
+          m_belt.set(0);
+          System.out.println("Belt stop");
         });
   }
 

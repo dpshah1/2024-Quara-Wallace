@@ -79,9 +79,8 @@ public class RobotContainer {
   public static TestAuto auto = new TestAuto();
   
   
-  public static WPI_VictorSPX leftBelt = new WPI_VictorSPX(Constants.leftBelt);
-  public static WPI_VictorSPX rightBelt = new WPI_VictorSPX(Constants.rightBelt);
-  public static Belt belt = new Belt(leftBelt, rightBelt);
+  public static CANSparkMax beltMotor = new CANSparkMax(Constants.leftBelt, CANSparkLowLevel.MotorType.kBrushless);
+  public static Belt belt = new Belt(beltMotor);
 
 
 
@@ -96,9 +95,8 @@ public class RobotContainer {
   public static ColorSensorV3 colorSensor = new ColorSensorV3(i2cPort);
   public static ColorSensor colorSensorSubsystem = new ColorSensor(colorSensor);
 
-  public static WPI_TalonSRX topIntake = new WPI_TalonSRX(Constants.TOP_INTAKE_PORT);
-  public static WPI_TalonSRX bottomIntake = new WPI_TalonSRX(Constants.BOTTOM_INTAKE_PORT);
-  public static Intake intake = new Intake();
+  public static CANSparkMax intakeMotor = new CANSparkMax(Constants.TOP_INTAKE_PORT, CANSparkLowLevel.MotorType.kBrushless);
+  public static Intake intake = new Intake(intakeMotor);
 
   public static Shooter shooter = new Shooter(shooterMotor);
 

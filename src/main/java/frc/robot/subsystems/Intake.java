@@ -8,12 +8,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Intake extends SubsystemBase{
-    private final CANSparkMax topIntakeMotor;
-    private final CANSparkMax bottomIntakeMotor;
+    private final CANSparkMax m_intake;
 
-    public Intake() {
-        topIntakeMotor = new CANSparkMax(Constants.TOP_INTAKE_PORT, CANSparkLowLevel.MotorType.kBrushless);
-        bottomIntakeMotor = new CANSparkMax(Constants.BOTTOM_INTAKE_PORT, CANSparkLowLevel.MotorType.kBrushless);
+    public Intake(CANSparkMax intake) {
+        m_intake = intake;
     }
 
     public Command runIntake() {
@@ -33,12 +31,10 @@ public class Intake extends SubsystemBase{
     }
 
     public void startIntake() {
-        topIntakeMotor.set(-Constants.IntakeSpeed);
-        bottomIntakeMotor.set(Constants.IntakeSpeed);
+        m_intake.set(-Constants.IntakeSpeed);
     }
 
     public void stopIntakeCommand() {
-        topIntakeMotor.set(0);
-        bottomIntakeMotor.set(0);
+        m_intake.set(0);
     }
 }
