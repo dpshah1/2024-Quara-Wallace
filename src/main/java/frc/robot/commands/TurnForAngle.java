@@ -12,7 +12,7 @@ public class TurnForAngle extends Command {
 
     public TurnForAngle(Drivetrain drivetrain, double angleChange) {
         this.drivetrain = drivetrain;
-        this.angleChange = angleChange;
+        this.angleChange = -angleChange;
         addRequirements(drivetrain);
 
         pidController = new PIDController(Constants.KP_TURN_ANGLE, Constants.KI_TURN_ANGLE, Constants.KD_TURN_ANGLE);
