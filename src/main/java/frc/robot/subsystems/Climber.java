@@ -21,15 +21,15 @@ public class Climber extends SubsystemBase {
     }
 
     public void climb() {
-        m_rightClimb.set(1.0);
+        m_rightClimb.set(0.2);
     }
 
     public void unclimb() {
-        m_rightClimb.set(-1.0);
+        m_rightClimb.set(-0.2);
     }
 
     public void stopClimbing() {
-        m_rightClimb.set(0.0);
+        m_rightClimb.set(0);
     }
 
     public Command retractClimb() {

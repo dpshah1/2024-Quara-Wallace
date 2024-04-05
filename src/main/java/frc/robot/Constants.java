@@ -26,20 +26,19 @@ public final class Constants {
   public static final int XBOX_PORT = 0;
   
   //Belt
-  public static final double BELT_MOTOR_SPEED = 1.5;
-  public static final int leftBelt = 50; //FIND THE ACTUAL VALUE
+  public static final double BELT_MOTOR_SPEED = 0.75;
+  public static final int leftBelt = 10; //FIND THE ACTUAL VALUE
 
   // Drivetrain stuff
   public static final int RightLeader = 6;
-  public static final int RightFollower = 2;
+  public static final int RightFollower = 16;
   public static final int LeftLeader = 4;
   public static final int LeftFollower = 3;
-  public static final int TopIntakeMotor = 1;
-  public static final int SHOOTER_MOTOR_PORT = 7;
+  public static final int SHOOTER_MOTOR_PORT = 1;
 
   public static final double MOVE_SPEED = 0.5;
   public static final double ROTATION_SPEED = 0.5;
-  public static final double IntakeSpeed = 0.5;
+  public static final double IntakeSpeed = -1;
 
 
     // Shooter angle
@@ -57,7 +56,7 @@ public final class Constants {
 
     public static final int BOTTOM_INTAKE_PORT = 999; // find out actual
 
-    public static final int TOP_INTAKE_PORT = 999; // find out actual
+    public static final int TOP_INTAKE_PORT = 13; // find out actual
 
     public static final int JOYSTICK_PORT = 1;
 

@@ -17,6 +17,7 @@ public class Intake extends SubsystemBase{
     public Command runIntake() {
         return runOnce(
             () -> {
+                System.out.println("Running the intake");
                 startIntake();
             }
         );

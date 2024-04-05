@@ -27,7 +27,7 @@ public class Belt extends SubsystemBase {
   public Command moveUp() {
     return runOnce(
         () -> {
-          m_belt.set(Constants.BELT_MOTOR_SPEED);
+          m_belt.set(-Constants.BELT_MOTOR_SPEED);
           System.out.println("Belt up");
         });
   }

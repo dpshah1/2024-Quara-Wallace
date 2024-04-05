@@ -51,7 +51,7 @@ public class RobotContainer {
   public static WPI_VictorSPX rightFollower = new WPI_VictorSPX(Constants.RightFollower);
   public static WPI_VictorSPX leftLeader = new WPI_VictorSPX(Constants.LeftLeader);
   public static WPI_VictorSPX leftFollower = new WPI_VictorSPX(Constants.LeftFollower);
-  public static WPI_VictorSPX shooterMotor = new WPI_VictorSPX(Constants.SHOOTER_MOTOR_PORT);
+  public static CANSparkMax shooterMotor = new CANSparkMax(Constants.SHOOTER_MOTOR_PORT, CANSparkLowLevel.MotorType.kBrushless);
   public static ADIS16470_IMU imu = new ADIS16470_IMU();
 
   public static Drivetrain drivetrain = new Drivetrain(rightLeader, rightFollower, leftLeader, leftFollower, imu);
@@ -139,13 +139,16 @@ public class RobotContainer {
     new JoystickButton(xController, 1).onTrue(intake.runIntake());
     new JoystickButton(xController, 2).onTrue(intake.stopIntake());
     new JoystickButton(xController, 3).onTrue(shooter.shootCommand());
-    new JoystickButton(xController, 4).onTrue(tilt);
     new JoystickButton(xController, 5).onTrue(t.doHi());
-    new JoystickButton(driverDashboard, 3).whileTrue(belt.moveUp());
+    new JoystickButton(driverDashboard, 12).onTrue(new IntakeAndBelt());
+    new JoystickButton(driverDashboard, 13).onTrue(new StopIntakeAndBelt());
     new JoystickButton(driverDashboard, 1).onTrue(new IntakeNote());
     new JoystickButton(driverDashboard, 4).onTrue(shooterAngle.setTestSpeed(0.3));
     new JoystickButton(driverDashboard, 5).onTrue(shooterAngle.setTestSpeed(-0.3));
     new JoystickButton(driverDashboard, 6).onTrue(shooterAngle.setTestSpeed(0));
+    new JoystickButton(driverDashboard, 7).onTrue(climbers.retractClimb());
+    new JoystickButton(driverDashboard, 8).onTrue(climbers.extendClimb());
+    new JoystickButton(driverDashboard, 9).onTrue(climbers.stopClimb());
   }
 
   /**
