@@ -45,4 +45,12 @@ public class ShooterAngle extends SubsystemBase {
         m_shooterAngleMotor.set(speed);
     }
 
+    public Command setTestSpeed(double speed) {
+        return runOnce(
+            () -> {
+                this.setMotorSpeed(speed);
+            }
+        );
+    }
+
 }
