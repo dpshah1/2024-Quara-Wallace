@@ -28,7 +28,6 @@ public final class Constants {
   //Belt
   public static final double BELT_MOTOR_SPEED = 1.5;
   public static final int leftBelt = 50; //FIND THE ACTUAL VALUE
-  public static final int rightBelt = 60;
 
   // Drivetrain stuff
   public static final int RightLeader = 6;
@@ -36,7 +35,6 @@ public final class Constants {
   public static final int LeftLeader = 4;
   public static final int LeftFollower = 3;
   public static final int TopIntakeMotor = 1;
-  public static final int BottomIntakeMotor = 1;
   public static final int SHOOTER_MOTOR_PORT = 7;
 
   public static final double MOVE_SPEED = 0.5;
@@ -65,7 +63,7 @@ public final class Constants {
 
     public static final int NOTE_DISTANCE = 5; // not sure what the units are, but need to find the distance of the note
 
-    public static final int LEFT_CLIMB_PORT = 0;
+    public static final int LEFT_CLIMB_PORT = 1;
 
     public static final int RIGHT_CLIMB_PORT = 0;
 }

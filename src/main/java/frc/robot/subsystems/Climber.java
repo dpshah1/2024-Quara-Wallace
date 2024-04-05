@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Climber extends SubsystemBase {
-    private WPI_TalonSRX m_leftClimb;
-    private WPI_VictorSPX m_rightClimb;
+    private WPI_VictorSPX m_leftClimb;
+    private WPI_TalonSRX m_rightClimb;
 
-    public Climber(WPI_TalonSRX leftClimb, WPI_VictorSPX rightClimb) {
+    public Climber(WPI_VictorSPX leftClimb, WPI_TalonSRX rightClimb) {
         m_leftClimb = leftClimb;
         m_rightClimb = rightClimb;
         m_leftClimb.setNeutralMode(NeutralMode.Brake); // Set the motor to brake mode
