@@ -69,4 +69,6 @@ public final class Constants {
     public static final int SHOOTER_ANGLE_MAX = 999; // find out actual
     public static final int SHOOTER_ANGLE_MIN = 0; // test
     public static final int target = 999; //get it
+
+    public static final double INTAKE_ANGLE_SHOOTER = -18.738037;
 }

@@ -156,6 +156,7 @@ public class RobotContainer {
     new JoystickButton(driverDashboard, 7).onTrue(climbers.retractClimb());
     new JoystickButton(driverDashboard, 8).onTrue(climbers.extendClimb());
     new JoystickButton(driverDashboard, 9).onTrue(climbers.stopClimb());
+    new JoystickButton(driverDashboard, 5).onTrue(new TurnToAngle(shooterAngle, Constants.INTAKE_ANGLE_SHOOTER));
   }
 
   /**
