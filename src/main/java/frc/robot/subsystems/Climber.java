@@ -22,13 +22,13 @@ public class Climber extends SubsystemBase {
     }
 
     public void climb() {
-        m_rightClimb.set(0.2);
-        m_leftClimb.set(0.2);
+        m_rightClimb.set(0.6);
+        m_leftClimb.set(0.6);
     }
 
     public void unclimb() {
-        m_rightClimb.set(-0.2);
-        m_leftClimb.set(-0.2);
+        m_rightClimb.set(-0.6);
+        m_leftClimb.set(-0.6);
     }
 
     public void stopClimbing() {

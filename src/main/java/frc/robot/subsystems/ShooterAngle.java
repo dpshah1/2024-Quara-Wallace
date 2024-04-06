@@ -4,6 +4,8 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkLowLevel;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkBase.IdleMode;
+import com.revrobotics.CANSparkBase.SoftLimitDirection;
+
 import frc.robot.Constants;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -29,6 +31,11 @@ public class ShooterAngle extends SubsystemBase {
         this.m_shooterAngleMotor = shooterAngleMotor;
         m_shooterAngleMotor.setIdleMode(IdleMode.kBrake);
         m_shooterAngleMotor.getEncoder().setPosition(0);
+        // m_shooterAngleMotor.setSmartCurrentLimit(10);
+        // m_shooterAngleMotor.enableSoftLimit(SoftLimitDirection.kForward, true);
+        // m_shooterAngleMotor.setSoftLimit(SoftLimitDirection.kForward, 0);
+        // m_shooterAngleMotor.enableSoftLimit(SoftLimitDirection.kReverse, true);
+        // m_shooterAngleMotor.setSoftLimit(SoftLimitDirection.kReverse, 0);
     }
 
     @Override

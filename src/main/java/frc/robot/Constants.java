@@ -42,7 +42,7 @@ public final class Constants {
 
 
     // Shooter angle
-    public static final int SHOOTER_ANGLE_PORT = 21; // find the actual id
+    public static final int SHOOTER_ANGLE_PORT = 21;
 
     // Shooter
 

@@ -35,17 +35,14 @@ public class ShooterAngleMovement extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (m_shooterAngle.getEncoderPosition() <= Constants.SHOOTER_ANGLE_MAX && m_shooterAngle.getEncoderPosition() >= Constants.SHOOTER_ANGLE_MIN) {
-      if (RobotContainer.driverDashboard.getRawButton(4)) {
-        m_shooterAngle.setMotorSpeed(0.3);
-        System.out.println("started movement");
-      } 
-      else if (RobotContainer.driverDashboard.getRawButton(5)) {
-        m_shooterAngle.setMotorSpeed(-0.3);
-        System.out.println("reverse movement");
-      }
+    if (RobotContainer.driverDashboard.getRawButton(4)) {
+      m_shooterAngle.setMotorSpeed(0.15);
+      System.out.println("started movement");
+    } 
+    else if (RobotContainer.driverDashboard.getRawButton(5)) {
+      m_shooterAngle.setMotorSpeed(-0.15);
+      System.out.println("reverse movement");
     }
-
     else {
       m_shooterAngle.setMotorSpeed(0);
       System.out.println("stop movement");
