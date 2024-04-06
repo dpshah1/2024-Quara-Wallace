@@ -4,6 +4,7 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkLowLevel;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkBase.IdleMode;
+import frc.robot.Constants;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.commands.Move;
@@ -64,6 +65,23 @@ public class ShooterAngle extends SubsystemBase {
                 this.setMotorSpeed(speed);
             }
         );
+    }
+    public boolean isInRange()
+    {
+        if(Math.abs(getEncoderPosition() - Constants.target) < 10)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public double calculateSpeed() {
+        if(this.getEncoderPosition() - Constants.target > 0) {
+            return 0.1;
+        }
+        else {
+            return -0.1;
+        }
     }
 
 }
