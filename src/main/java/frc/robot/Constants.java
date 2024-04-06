@@ -34,7 +34,7 @@ public final class Constants {
   public static final int RightFollower = 16;
   public static final int LeftLeader = 4;
   public static final int LeftFollower = 3;
-  public static final int SHOOTER_MOTOR_PORT = 2;
+  public static final int SHOOTER_MOTOR_PORT = 22;
 
   public static final double MOVE_SPEED = 0.8;
   public static final double ROTATION_SPEED = 0.6;

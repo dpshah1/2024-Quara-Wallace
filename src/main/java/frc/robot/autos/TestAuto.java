@@ -17,8 +17,8 @@ public class TestAuto extends SequentialCommandGroup{
             new Delay(0.5),
             new LowerShooterAngle(RobotContainer.shooterAngle),
             new Delay(0.5),
-            new DriveForTime(RobotContainer.drivetrain, 0.25, true),
-            RobotContainer.shooter.shootCommand()
+            new DriveForTime(RobotContainer.drivetrain, 0.25, true)
+            //RobotContainer.shooter.shootCommand()
         );
     }
 }
