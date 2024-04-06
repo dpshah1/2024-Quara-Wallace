@@ -4,7 +4,9 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.revrobotics.CANSparkBase.IdleMode;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -32,6 +34,12 @@ public class Drivetrain extends SubsystemBase {
         m_rightFollower = rightFollower;
         m_leftLeader = leftLeader;
         m_leftFollower = leftFollower;
+
+        m_rightLeader.setNeutralMode(NeutralMode.Brake);
+        m_rightFollower.setNeutralMode(NeutralMode.Brake);
+        m_leftLeader.setNeutralMode(NeutralMode.Brake);
+        m_leftFollower.setNeutralMode(NeutralMode.Brake);
+
 
         // Invert the left leader
         m_leftLeader.setInverted(true);

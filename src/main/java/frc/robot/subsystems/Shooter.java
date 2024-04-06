@@ -19,17 +19,29 @@ public class Shooter extends SubsystemBase {
 
     public Shooter(CANSparkMax motor) {
         this.motor = motor;
-        //this.motor.setSmartCurrentLimit(0)
+        this.motor.setSmartCurrentLimit(30);
     }
 
     public Command shootCommand() {
         return runOnce(
             () -> {
                 //shoot();
-                motor.set(0.2);
+                motor.set(-1.0);
+                System.out.println("Running shoot command");
             }
         );
     }
+
+    public Command stopShoot() {
+        return runOnce(
+            () -> {
+                //shoot();
+                motor.set(0);
+                System.out.println("Stop shoot");
+            }
+        );
+    }
+
     public void shoot() {
         if (RobotContainer.shooterAngle.getAngleSetpoint() == RobotContainer.shooterAngle.SPEAKER_ANGLE) {
             motor.set(SPEAKER_SPEED);

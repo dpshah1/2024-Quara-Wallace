@@ -34,15 +34,15 @@ public final class Constants {
   public static final int RightFollower = 16;
   public static final int LeftLeader = 4;
   public static final int LeftFollower = 3;
-  public static final int SHOOTER_MOTOR_PORT = 1;
+  public static final int SHOOTER_MOTOR_PORT = 2;
 
-  public static final double MOVE_SPEED = 0.5;
-  public static final double ROTATION_SPEED = 0.5;
+  public static final double MOVE_SPEED = 0.8;
+  public static final double ROTATION_SPEED = 0.6;
   public static final double IntakeSpeed = -1;
 
 
     // Shooter angle
-    public static final int SHOOTER_ANGLE_PORT = 25; // find the actual id
+    public static final int SHOOTER_ANGLE_PORT = 21; // find the actual id
 
     // Shooter
 
@@ -62,7 +62,10 @@ public final class Constants {
 
     public static final int NOTE_DISTANCE = 5; // not sure what the units are, but need to find the distance of the note
 
-    public static final int LEFT_CLIMB_PORT = 1;
+    public static final int LEFT_CLIMB_PORT = 2;
 
-    public static final int RIGHT_CLIMB_PORT = 0;
+    public static final int RIGHT_CLIMB_PORT = 9;
+
+    public static final int SHOOTER_ANGLE_MAX = 999; // find out actual
+    public static final int SHOOTER_ANGLE_MIN = 0; // test
 }

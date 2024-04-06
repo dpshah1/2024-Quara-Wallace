@@ -31,6 +31,13 @@ public class Belt extends SubsystemBase {
           System.out.println("Belt up");
         });
   }
+    public Command moveDown() {
+    return runOnce(
+        () -> {
+          m_belt.set(Constants.BELT_MOTOR_SPEED);
+          System.out.println("Belt down");
+        });
+  }
 
   public Command stopBelt() {
     return runOnce(

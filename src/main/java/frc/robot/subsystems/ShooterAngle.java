@@ -3,8 +3,12 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkLowLevel;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkBase.IdleMode;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.commands.Move;
+import frc.robot.commands.ShooterAngleMovement;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 
 
@@ -22,12 +26,17 @@ public class ShooterAngle extends SubsystemBase {
 
     public ShooterAngle(CANSparkMax shooterAngleMotor) {
         this.m_shooterAngleMotor = shooterAngleMotor;
+        m_shooterAngleMotor.setIdleMode(IdleMode.kBrake);
+        m_shooterAngleMotor.getEncoder().setPosition(0);
     }
 
     @Override
     public void periodic() {
+        SmartDashboard.putNumber("Shooter angle position: ", m_shooterAngleMotor.getEncoder().getPosition());
         // This method will be called once per scheduler run
     }
+
+   
 
     public double getEncoderPosition() {
         return m_shooterAngleMotor.getEncoder().getPosition();
@@ -43,6 +52,10 @@ public class ShooterAngle extends SubsystemBase {
 
     public void setMotorSpeed(double speed) {
         m_shooterAngleMotor.set(speed);
+    }
+
+    public void initDefaultCommand() {
+        setDefaultCommand(new ShooterAngleMovement(this));
     }
 
     public Command setTestSpeed(double speed) {

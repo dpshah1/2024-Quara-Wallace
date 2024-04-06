@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 public class TestAuto extends SequentialCommandGroup{
     public TestAuto() {
         addCommands(
-            new DriveForTime(RobotContainer.drivetrain, 2, true),
+            new DriveForTime(RobotContainer.drivetrain, 2, false),
             new Delay(0.5),
             new TurnForAngle(RobotContainer.drivetrain, 90),
             new Delay(0.5),
