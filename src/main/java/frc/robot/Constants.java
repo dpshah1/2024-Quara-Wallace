@@ -36,8 +36,8 @@ public final class Constants {
   public static final int LeftFollower = 3;
   public static final int SHOOTER_MOTOR_PORT = 22;
 
-  public static final double MOVE_SPEED = 0.8;
-  public static final double ROTATION_SPEED = 0.6;
+  public static final double MOVE_SPEED = 1.0;
+  public static final double ROTATION_SPEED = 1.0 ;
   public static final double IntakeSpeed = -1;
 
 
@@ -48,6 +48,8 @@ public final class Constants {
 
     // Drive for time
     public static final double AUTO_MOVE_SPEED = 0.5;
+
+    public static final double INTAKE_SHOOTER_ANGLE = -18.738037;
 
     // Turn for angle
     public static final double KP_TURN_ANGLE = 0.01;
