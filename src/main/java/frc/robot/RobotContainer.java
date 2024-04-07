@@ -112,6 +112,8 @@ public class RobotContainer {
 
   public static ShooterAngleMovement shooterAngleMovement = new ShooterAngleMovement(shooterAngle);
 
+  public static ShooterMovement shooterMovement = new ShooterMovement(shooter);
+
   
 
 
@@ -123,6 +125,7 @@ public class RobotContainer {
     CommandScheduler.getInstance().setDefaultCommand(drivetrain, move);
     CommandScheduler.getInstance().setDefaultCommand(intake, intakeBeltMovement);
     CommandScheduler.getInstance().setDefaultCommand(shooterAngle, shooterAngleMovement);
+    CommandScheduler.getInstance().setDefaultCommand(shooter, shooterMovement);
 
     // Auto chooser 
     
@@ -153,7 +156,8 @@ public class RobotContainer {
     // new JoystickButton(driverDashboard, 4).whileTrue(shooterAngle.setTestSpeed(0.1));
     // new JoystickButton(driverDashboard, 5).whileTrue(shooterAngle.setTestSpeed(-0.1));
     // new JoystickButton(driverDashboard, 6).onTrue(shooterAngle.setTestSpeed(0));
-    new JoystickButton(driverDashboard, 13).whileTrue(intake.runIntake().alongWith(shooter.shootCommand()));
+    new JoystickButton(driverDashboard, 13).onTrue(intake.runIntake().alongWith(shooter.allShootCommand()));
+    //new JoystickButton(driverDashboard, 3).onTrue(intake.stopIntake().alongWith(shooter.stopShoot()));
     new JoystickButton(driverDashboard, 7).onTrue(climbers.retractClimb());
     new JoystickButton(driverDashboard, 8).onTrue(climbers.extendClimb());
     new JoystickButton(driverDashboard, 9).onTrue(climbers.stopClimb());

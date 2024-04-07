@@ -32,6 +32,16 @@ public class Shooter extends SubsystemBase {
         );
     }
 
+    public Command allShootCommand() {
+        return runOnce(
+            () -> {
+                //shoot();
+                motor.set(-0.5);
+                System.out.println("Running shoot command");
+            }
+        );
+    }
+
     public Command stopShoot() {
         return runOnce(
             () -> {
@@ -43,12 +53,10 @@ public class Shooter extends SubsystemBase {
     }
 
     public void shoot() {
-        if (RobotContainer.shooterAngle.getAngleSetpoint() == RobotContainer.shooterAngle.SPEAKER_ANGLE) {
-            motor.set(SPEAKER_SPEED);
-        } else if (RobotContainer.shooterAngle.getAngleSetpoint() == RobotContainer.shooterAngle.AMP_ANGLE){
-            motor.set(AMP_SPEED);
-        } else {
-            motor.set(0.1);
-        }
+        motor.set(-1);
+    }
+
+    public void setMotorSpeed(double speed) {
+        motor.set(speed);
     }
 }

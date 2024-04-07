@@ -32,10 +32,10 @@ public class ShooterAngle extends SubsystemBase {
         m_shooterAngleMotor.setIdleMode(IdleMode.kBrake);
         m_shooterAngleMotor.getEncoder().setPosition(0);
         // m_shooterAngleMotor.setSmartCurrentLimit(10);
-        // m_shooterAngleMotor.enableSoftLimit(SoftLimitDirection.kForward, true);
-        // m_shooterAngleMotor.setSoftLimit(SoftLimitDirection.kForward, 0);
-        // m_shooterAngleMotor.enableSoftLimit(SoftLimitDirection.kReverse, true);
-        // m_shooterAngleMotor.setSoftLimit(SoftLimitDirection.kReverse, 0);
+        m_shooterAngleMotor.enableSoftLimit(SoftLimitDirection.kForward, true);
+        m_shooterAngleMotor.setSoftLimit(SoftLimitDirection.kForward, 0); //kept as the starting position 
+        m_shooterAngleMotor.enableSoftLimit(SoftLimitDirection.kReverse, true);
+        m_shooterAngleMotor.setSoftLimit(SoftLimitDirection.kReverse, 0); // need to figure out
     }
 
     @Override
