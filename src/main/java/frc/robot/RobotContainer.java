@@ -150,13 +150,13 @@ public class RobotContainer {
     //new JoystickButton(driverDashboard, 11).
     // new JoystickButton(xController, 1).onTrue(intake.runIntake());
     // new JoystickButton(xController, 2).onTrue(intake.stopIntake());
-    new JoystickButton(driverDashboard,6).onTrue(shooter.shootCommand());
-    new JoystickButton(driverDashboard, 10).onTrue(shooter.stopShoot());
+   // new JoystickButton(driverDashboard,6).onTrue(shooter.shootCommand());
+    //new JoystickButton(driverDashboard, 10).onTrue(shooter.stopShoot());
     // new JoystickButton(xController, 5).onTrue(t.doHi());
     // new JoystickButton(driverDashboard, 4).whileTrue(shooterAngle.setTestSpeed(0.1));
     // new JoystickButton(driverDashboard, 5).whileTrue(shooterAngle.setTestSpeed(-0.1));
     // new JoystickButton(driverDashboard, 6).onTrue(shooterAngle.setTestSpeed(0));
-    new JoystickButton(driverDashboard, 13).onTrue(intake.runIntake().alongWith(shooter.allShootCommand()));
+    //new JoystickButton(driverDashboard, 13).onTrue(intake.runIntake().alongWith(shooter.allShootCommand()));
     //new JoystickButton(driverDashboard, 3).onTrue(intake.stopIntake().alongWith(shooter.stopShoot()));
     new JoystickButton(driverDashboard, 7).onTrue(climbers.retractClimb());
     new JoystickButton(driverDashboard, 8).onTrue(climbers.extendClimb());

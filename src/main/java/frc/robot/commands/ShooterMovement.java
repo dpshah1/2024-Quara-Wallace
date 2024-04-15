@@ -36,13 +36,14 @@ public class ShooterMovement extends Command {
   @Override
   public void execute() {
     // handoff speed
-    if(RobotContainer.driverDashboard.getRawButton(13)) {
+    if(RobotContainer.driverDashboard.getRawButton(5)) {
         m_shooter.setMotorSpeed(-0.3);
-        System.out.println("started movement");
+        System.out.println("started handoff movement");
     }
     // shoot speed
     else if(RobotContainer.driverDashboard.getRawButton(6)) {
         m_shooter.setMotorSpeed(-0.9);
+        System.out.println("started shoot movement");
     }
     else {
         m_shooter.setMotorSpeed(0);

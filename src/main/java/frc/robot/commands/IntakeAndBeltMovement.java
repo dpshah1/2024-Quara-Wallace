@@ -23,12 +23,12 @@ public class IntakeAndBeltMovement extends Command {
   @Override
   public void execute() {
 
-    if(RobotContainer.driverDashboard.getRawButton(11))
+    if(RobotContainer.driverDashboard.getRawButton(5))
     {
         m_intake.startIntake();
         System.out.println("started intake nmovement");
     }
-    else if(RobotContainer.driverDashboard.getRawButton(12)) {
+    else if(RobotContainer.driverDashboard.getRawButton(11)) {
         m_intake.reverseIntake();
         System.out.println("reverse intake movement");
     }

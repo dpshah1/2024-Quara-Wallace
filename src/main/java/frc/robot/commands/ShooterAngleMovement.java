@@ -35,12 +35,12 @@ public class ShooterAngleMovement extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (RobotContainer.driverDashboard.getRawButton(4)) {
-      m_shooterAngle.setMotorSpeed(0.15);
+    if (RobotContainer.driverDashboard.getRawButton(3)) {
+      m_shooterAngle.setMotorSpeed(0.3);
       System.out.println("started movement");
     } 
-    else if (RobotContainer.driverDashboard.getRawButton(5)) {
-      m_shooterAngle.setMotorSpeed(-0.15);
+    else if (RobotContainer.driverDashboard.getRawButton(4)) {
+      m_shooterAngle.setMotorSpeed(-0.3);
       System.out.println("reverse movement");
     }
     else {

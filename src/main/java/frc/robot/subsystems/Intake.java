@@ -16,8 +16,8 @@ public class Intake extends SubsystemBase{
     public Intake(CANSparkMax intake, CANSparkMax belt) {
         m_intake = intake;
         m_belt = belt;
-        m_intake.setSmartCurrentLimit(50);
-        m_belt.setSmartCurrentLimit(50);
+        m_intake.setSmartCurrentLimit(30);
+        m_belt.setSmartCurrentLimit(30);
     }
 
     public Command runIntake() {

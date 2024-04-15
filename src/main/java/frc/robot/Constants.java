@@ -37,7 +37,7 @@ public final class Constants {
   public static final int SHOOTER_MOTOR_PORT = 22;
 
   public static final double MOVE_SPEED = 0.8;
-  public static final double ROTATION_SPEED = -0.8;
+  public static final double ROTATION_SPEED = 0.8;
   public static final double IntakeSpeed = -1;
 
 
